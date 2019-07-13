@@ -95,7 +95,7 @@ def call(Closure body={}) {
             }
             always {
                 node('master') {
-                    step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "zhuzhi@hellotalk.com", sendToIndividuals: true])
+                    //step([$class: 'Mailer', notifyEveryUnstableBuild: true, recipients: "zhuzhi@hellotalk.com", sendToIndividuals: true])
                 }
             }
         }
