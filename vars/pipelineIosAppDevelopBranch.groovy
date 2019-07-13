@@ -32,7 +32,7 @@ def call(Closure body={}) {
                 agent {
                     node {
                         label 'master'
-                        customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
+                        //customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
                     }
                 }
                 when {
@@ -52,7 +52,7 @@ def call(Closure body={}) {
                 agent {
                     node {
                         label 'master'
-                        customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
+                        //customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
                     }
                 }
                 when {
@@ -70,7 +70,7 @@ def call(Closure body={}) {
                 agent {
                     node {
                         label 'master'
-                        customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
+                        //customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
                     }
                 }
                 environment {
