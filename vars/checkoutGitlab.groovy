@@ -23,12 +23,6 @@ def call() {
             ],
             [
                 $class: 'GitTagMessageExtension'
-            ],
-            [
-                $class: 'CleanBeforeCheckout'
-            ],
-            [
-                $class: 'CleanCheckout'
             ]
         ],
         submoduleCfg: scm.submoduleCfg,
