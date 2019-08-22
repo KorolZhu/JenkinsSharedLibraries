@@ -16,7 +16,7 @@ def call(Closure body={}) {
         }
 
         triggers {
-            pollSCM('H * * * *')
+            pollSCM('H/2 * * * *')
         }
 
         environment {
