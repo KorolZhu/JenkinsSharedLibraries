@@ -15,9 +15,9 @@ def call(Closure body={}) {
             ansiColor('xterm')
         }
 
-        //triggers {
-        //    pollSCM('H/2 * * * *')
-        //}
+        triggers {
+            pollSCM('H/2 * * * *')
+        }
 
         environment {
             LANG = "C.UTF-8"
