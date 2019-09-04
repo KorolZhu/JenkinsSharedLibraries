@@ -28,37 +28,7 @@ def call(Closure body={}) {
         }
 
         stages {
-            stage('Check Branch/Tag') {
-                agent {
-                    node {
-                        label 'master'
-                        //customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
-                    }
-                }
-                when {
-                    beforeAgent true
-                    not {
-                        anyOf {
-                            branch "develop"
-                        }
-                    }
-                }
-                steps {
-                    error "Don't know what to do with this branch or tag: ${env.BRANCH_NAME}"
-                }
-            }
-
             stage('Checkout SCM') {
-                agent {
-                    node {
-                        label 'master'
-                        //customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
-                    }
-                }
-                when {
-                    beforeAgent true
-                    branch "develop"
-                }
                 steps {
                     script {
                         def scmVars = checkoutGitlab()
@@ -66,22 +36,17 @@ def call(Closure body={}) {
                         env.GIT_PREVIOUS_SUCCESSFUL_COMMIT = scmVars.GIT_PREVIOUS_SUCCESSFUL_COMMIT
                         echo "current SHA: ${scmVars.GIT_COMMIT}"
                         echo "previous SHA: ${scmVars.GIT_PREVIOUS_SUCCESSFUL_COMMIT}"
+                        echo "scmVars: ${scmVars}"
                     }
                 }
             }
 
             stage('Build') {
-                agent {
-                    node {
-                        label 'master'
-                        //customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
-                    }
-                }
                 environment {
                     PATH = "/Users/mac/.rbenv/shims:/usr/local/bin:${PATH}"
                 }
                 steps {
-                    buildDeveopBranch()
+                    buildBranch()
                 }
                 post {
                     success {
@@ -106,7 +71,7 @@ def call(Closure body={}) {
     }
 }
 
-def buildDeveopBranch() {
+def buildBranch() {
     echo "Develop branch - Build"
     sh 'bundle install'
     sh 'bundle exec fastlane ios do_publish_all'
