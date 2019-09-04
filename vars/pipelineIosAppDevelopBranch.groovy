@@ -48,6 +48,12 @@ def call(Closure body={}) {
             }
 
             stage('Build') {
+                agent {
+                    node {
+                        label 'master'
+                        //customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
+                    }
+                }
                 environment {
                     PATH = "/Users/mac/.rbenv/shims:/usr/local/bin:${PATH}"
                 }
