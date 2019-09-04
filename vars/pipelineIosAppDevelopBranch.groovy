@@ -29,6 +29,15 @@ def call(Closure body={}) {
 
         stages {
             stage('Checkout SCM') {
+                agent {
+                    node {
+                        label 'master'
+                        //customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
+                    }
+                }
+                when {
+                    beforeAgent true
+                }
                 steps {
                     script {
                         def scmVars = checkoutGitlab()
