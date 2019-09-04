@@ -35,9 +35,6 @@ def call(Closure body={}) {
                         //customWorkspace "workspace/${JOB_NAME.replace('%2F', '/')}"
                     }
                 }
-                when {
-                    beforeAgent true
-                }
                 steps {
                     script {
                         def scmVars = checkoutGitlab()
