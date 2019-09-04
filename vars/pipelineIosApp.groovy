@@ -2,6 +2,9 @@
 
 def call() {
 
+    pipelineIosAppDevelopBranch()
+    
+    /*
     if (env.BRANCH_NAME.startsWith('feature/')) {
         pipelineIosAppFeatureBranch()
     } else if (env.BRANCH_NAME == 'develop') {
@@ -12,10 +15,8 @@ def call() {
         pipelineIosAppReleaseBranch()
     } else if (env.BRANCH_NAME == 'master') {
         pipelineIosAppMasterBranch()
-    /*} else if (env.BRANCH_NAME.startsWith('hotfix/')) {
-        buildHotfixBranch()*/
     } else {
-        // error "Don't know what to do with this branch: ${env.BRANCH_NAME}"
         pipelineIosAppTagBranch()
     }
+    */
 }
