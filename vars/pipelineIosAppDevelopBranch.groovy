@@ -33,7 +33,7 @@ def call(Closure body={}) {
                 agent {
                     node {
                         label 'master'
-                        customWorkspace "workspace/develop"
+                        customWorkspace "workspace/${JOB_NAME}"
                     }
                 }
                 steps {
@@ -53,7 +53,7 @@ def call(Closure body={}) {
                 agent {
                     node {
                         label 'master'
-                        customWorkspace "workspace/develop"
+                        customWorkspace "workspace/${JOB_NAME}"
                     }
                 }
                 environment {
