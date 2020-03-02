@@ -64,8 +64,8 @@ def call(Closure body={}) {
                 }
                 post {
                     success {
-                        archiveArtifacts artifacts: 'build/IPA/*.dSYM.zip', fingerprint: true
-                        archiveArtifacts artifacts: 'build/IPA/*.ipa', fingerprint: true
+                        // archiveArtifacts artifacts: 'build/IPA/*.dSYM.zip', fingerprint: true
+                        // archiveArtifacts artifacts: 'build/IPA/*.ipa', fingerprint: true
                     }
                 }
             }
