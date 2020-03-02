@@ -62,12 +62,12 @@ def call(Closure body={}) {
                 steps {
                     buildBranch()
                 }
-                post {
-                    success {
-                        // archiveArtifacts artifacts: 'build/IPA/*.dSYM.zip', fingerprint: true
-                        // archiveArtifacts artifacts: 'build/IPA/*.ipa', fingerprint: true
-                    }
-                }
+                // post {
+                //     success {
+                //         archiveArtifacts artifacts: 'build/IPA/*.dSYM.zip', fingerprint: true
+                //         archiveArtifacts artifacts: 'build/IPA/*.ipa', fingerprint: true
+                //     }
+                // }
             }
         }
         post {
