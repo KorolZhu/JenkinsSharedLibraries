@@ -87,6 +87,6 @@ def call(Closure body={}) {
 
 def buildBranch() {
     echo "${env.GIT_BRANCH} branch - Build"
-    // sh 'bundle install'
+    sh 'bundle install'
     sh 'bundle exec fastlane ios do_publish_all'
 }
